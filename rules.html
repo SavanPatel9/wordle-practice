@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Play</title>
+    <link rel="stylesheet" href="styles/rules.css">
+</head>
+<body>
+    <div class="container">
+        <div class="howto-box">
+            <div class="text">
+                <h1 class="title">How To Play</h1>
+                <p class="subtitle">Guess the Wordle in 6 tries.</p>
+                <ul class="rulelist">
+                    <li style="padding-bottom: 5px">Each guess must be a valid 5-letter word.</li>
+                    <li>The color of the tiles will change to show how close your guess was to the word.</li>
+                </ul>
+                <p>Examples</p>
+                <div>
+                    <img src="img/example1.jpg" alt="" class="ex">
+                    <p><strong>W</strong> is in the word and in the correct spot.</p>
+                    <img src="img/example2.jpg" alt="" class="ex">
+                    <p><strong>I</strong> is in the word but in the wrong spot.</p>
+                    <img src="img/example3.jpg" alt="" class="ex">
+                    <p><strong>U</strong> is not in the word in any spot.</p>
+                </div>
+                <hr class="solid">
+                <div class="footer">
+                    <button class="play" onclick="startGame()">Play</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/rules.js"></script>
+</body>
+</html>

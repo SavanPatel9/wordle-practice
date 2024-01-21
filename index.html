@@ -11,10 +11,14 @@
         <div class="home">
             <img src="/img/wordle_logo.jpg" alt="">
             <h1>Wordle Practice</h1>
-            <p>Get 6 chances to guess a 5-letter word</p>
-            <button>How to play</button>
-            <button>Play</button>
+            <p class="goal">Get 6 chances to guess a 5-letter word.</p>
+            <div class="buttons">
+                <button class="howto" onclick="changePage('howto')">How to play</button>
+                <button class="play" onclick="changePage('game')">Play</button>
+            </div>
+            <p class="subtext"><span class="date"></span><br>Made by Savan Patel</p>
         </div>
     </div>
+    <script src="scripts/index.js"></script>
 </body>
 </html>

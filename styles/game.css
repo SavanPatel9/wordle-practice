@@ -1,0 +1,66 @@
+body {
+    background-color: #121213;
+    color: white;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar {
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+}
+
+.links {
+    display: flex;
+    float: right;
+}
+
+hr.solid {
+    color: rgb(40, 40, 40);
+    border-top: 1px solid #303030;
+}
+
+.wordle-practice {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: inline-block;
+    margin: 15px 0 0 20px;
+    width: 200px;
+}
+
+.buttons {
+    background-size: cover;
+    background-color: white;
+    border: hidden;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    margin: 15px 13px 0 10px;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+}
+
+.buttons:hover {
+    opacity: 0.7;
+}
+
+.grid-container {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(5, 60px);
+    grid-template-rows: repeat(6, 60px);
+    text-align: center;
+    font-size: 35px;
+}
+
+.grid-element {
+    border: 2px solid #333; /* Set border style, width, and color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
