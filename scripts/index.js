@@ -1,4 +1,4 @@
-function changePage (location) {
+function changePage (location) {        // redirects to correct page
     if(location === 'howto') {
         window.location.href = "rules.html";
     } else if (location === 'game') {
@@ -6,7 +6,7 @@ function changePage (location) {
     }
 }
 
-function currentDate () {
+function currentDate () {       // gets current date and configures string into proper format.
     today = new Date();
     var date = today.getDate();
     var month = today.getMonth();

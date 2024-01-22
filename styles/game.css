@@ -46,7 +46,7 @@ hr.solid {
 
 .grid-container {
     position: absolute;
-    top: 38%;
+    top: 39%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
@@ -59,7 +59,7 @@ hr.solid {
 }
 
 .grid-element {
-    border: 2px solid #333; /* Set border style, width, and color */
+    border: 2px solid #333;
     display: flex;
     align-items: center;
     justify-content: center;
