@@ -63,4 +63,44 @@ hr.solid {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 1.5s ease;
+}
+
+.keyboard {
+    position: absolute;
+    z-index: -1;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    height: 190px;
+    width: 500px;
+}
+
+.keyboard-buttons {
+    background-size: cover;
+    background-color: rgb(120,124,127);
+    color: white;
+    border: hidden;
+    border-radius: 5px;
+    margin: 2px 0 2px 0;
+    font-size: 18px;
+    font-weight: bold;
+    height: 60px;
+    width: 46px;
+    cursor: pointer;
+}
+
+.other-keys {
+    background-size: cover;
+    background-color: rgb(120,124,127);
+    color: white;
+    border: hidden;
+    border-radius: 5px;
+    margin: 2px 0 2px 0;
+    font-size: 14px;
+    font-weight: bold;
+    height: 60px;
+    width: 70px;
+    cursor: pointer;
 }
