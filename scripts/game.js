@@ -2,9 +2,19 @@ let wordle; // word for game
 
 var grids = document.querySelectorAll(".grid-element"); // DOM for class of grid-element
 
+var popup_win = document.querySelector(".popup-win");
+
+var wordle_display = document.querySelector(".wordle-display");
+
+var num_count_display = document.querySelector(".num-tries");
+
 let hold = 0;   // used for backspace
 
 let gridIndex = 0;  // grid index
+
+let winStatus = false;
+
+let numTries = 0;
 
 // keeps track of tries. try number * 5 for the specific index
 
@@ -77,7 +87,7 @@ function processKey(letter) {
                 }
             } 
             else if(letter === "Enter") {       // Enter was pressed
-                word = word = currWord.join('');
+                word = currWord.join('');
 
                 checkWord(word);
 
@@ -92,6 +102,8 @@ function processKey(letter) {
     }
 }
 
+
+
 function enterProcess (isWord) {
     if(tryShifter.includes(gridIndex)) {
         
@@ -100,6 +112,8 @@ function enterProcess (isWord) {
         if(isWord) {       // change because this is an async function.
 
             if(!pastWords.includes(word)) {
+
+                numTries ++;
 
                 compareWordle(word);
 
@@ -120,25 +134,58 @@ function enterProcess (isWord) {
 
 function compareWordle (currWord) {     // need to fix because it doesn't take into account double letters.
 
+    var map_letters = {};
+
+    var green_tiles = [];
+
+    for(let l = 0; l < wordle.length; l++) {
+        if(wordle[l] in map_letters) {
+            map_letters[wordle[l]]++;
+        } else {
+            map_letters[wordle[l]] = 1;
+        }
+    }
+
     for(let i = 0; i < currWord.length; i++) {
         if(wordle.includes(currWord[i]) && wordle[i] === currWord[i]) {
 
             // change color of grid background to green
+            map_letters[currWord[i]]--;
+
+            green_tiles.push(i);
+
             grids[i + hold].style.backgroundColor = '#6ca965';
 
-
-        } else if(wordle.includes(currWord[i])) {
-
-            // change color of grid background to yellow
-            grids[i + hold].style.backgroundColor = '#c8b653';
-
-        } else {
+        } else if(!wordle.includes(currWord[i])) {
 
             // change color of grid background to a little darker than grid square.
             grids[i + hold].style.backgroundColor = '#383535';
 
         }
     }
+
+    for(let j = 0; j < currWord.length; j++) {
+
+        if(wordle.includes(currWord[j]) && map_letters[currWord[j]] !== 0 && !green_tiles.includes(j)) {
+            map_letters[currWord[j]]--;
+
+            grids[j + hold].style.backgroundColor = '#c8b653';
+        }
+    }
+
+    if(green_tiles.length === wordle.length) {
+        
+        winStatus = true;
+        gridIndex = 30;
+
+        num_count_display.textContent += ` ${numTries} tries!`;
+        wordle_display.textContent += ` ${wordle}.`;
+        popup_win.style.display = 'block';
+
+        console.log(`You win, the word was ${wordle}`);
+    }
+
+
 }
 
 async function startGame() {      // fetches random word api with length of 5, saves it to global variable
@@ -154,7 +201,7 @@ async function startGame() {      // fetches random word api with length of 5, s
         const data = await response.json();
         wordle = data[0];
         console.log(wordle);
-        checkWord(wordle);
+        checkWord_start(wordle);
     } catch (error) {
         console.error(error);
     }
@@ -179,6 +226,26 @@ async function checkWord(word) {
 
     enterProcess(status);
     
+}
+
+async function checkWord_start(word) {
+    
+    console.log(word);
+    const endpoint = new URL(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+    const response = await fetch(endpoint)
+    if(!response.ok) {
+        console.log("Not a word");
+        startGame();
+    } else {
+        const data = await response.json();
+
+        console.log("Is a word");
+    }
+    
+}
+
+function playAgain() {
+    location.reload();
 }
 
 startGame();          // Required to start game to put wordle in variable

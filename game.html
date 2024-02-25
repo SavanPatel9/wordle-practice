@@ -80,6 +80,13 @@
             <button class="keyboard-buttons" onclick="processKey('m')">M</button>
             <button class="other-keys" onclick="processKey('Backspace')"><i class="fa-solid fa-delete-left"></i></button>
         </div>
+        <div class="popup-win">
+            <h1>You Win!</h1>
+            <h2 class="wordle-display">The wordle was </h2>
+            <h2 class="num-tries">You solved it in </h2>
+            <h2>Play Again?</h2>
+            <button class="play-again" onclick="playAgain()">Yes</button>
+        </div>
     </div>
     <script src="scripts/game.js"></script>
 </body>

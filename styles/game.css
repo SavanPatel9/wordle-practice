@@ -104,3 +104,34 @@ hr.solid {
     width: 70px;
     cursor: pointer;
 }
+
+.popup-win {
+    display: none;
+    position: absolute;
+    height: 500px;
+    width: 400px;
+    top: 46%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    border: hidden;
+    border-radius: 5px;
+    background-color: rgb(49, 48, 48);
+    z-index: 1;
+    transition: display 1s ease;
+}
+
+.play-again {
+    background-color: rgb(23, 111, 23);
+    color: black;
+    height: 40px;
+    width: 90px;
+    cursor: pointer;
+    border: hidden;
+    border-radius: 5px;
+    transition: opacity 0.5s ease;
+}
+
+.play-again:hover {
+    opacity: 0.5;
+}
