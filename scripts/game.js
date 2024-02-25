@@ -170,6 +170,11 @@ function compareWordle (currWord) {     // need to fix because it doesn't take i
             map_letters[currWord[j]]--;
 
             grids[j + hold].style.backgroundColor = '#c8b653';
+        } else if(map_letters[currWord[j]] === 0 && !green_tiles.includes(j)) {
+
+            // change color of grid background to a little darker than grid square.
+            grids[j + hold].style.backgroundColor = '#383535';
+
         }
     }
 
